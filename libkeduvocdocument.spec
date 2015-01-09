@@ -6,8 +6,10 @@ License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://edu.kde.org
 Source0:	ftp://ftp.kde.org/pub/kde/stable/%{version}/src/%{name}-%{version}.tar.xz
-BuildRequires:	automoc4
-BuildRequires:	kdelibs4-devel
+BuildRequires:  cmake(KF5KIO)
+BuildRequires:  cmake(KF5Archive)
+BuildRequires:  cmake(KF5I18n)
+
 
 %description
 Runtime library for KDE Education Application.
