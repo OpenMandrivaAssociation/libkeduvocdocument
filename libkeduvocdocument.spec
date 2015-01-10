@@ -1,7 +1,7 @@
 Summary:	Free Educational Software based on the KDE technologies
 Name:		libkeduvocdocument
 Version:	14.12.0
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://edu.kde.org
@@ -53,7 +53,7 @@ Files needed to build applications based on %{name}.
 %setup -q
 
 %build
-%cmake_kde4
+%cmake_kde4 -DINCLUDE_INSTALL_DIR=%{_includedir}
 %make
 
 %install
