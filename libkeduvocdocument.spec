@@ -1,16 +1,16 @@
+%define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 Summary:	Free Educational Software based on the KDE technologies
 Name:		libkeduvocdocument
-Version:	14.12.2
+Version:	15.03.97
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://edu.kde.org
-Source0:	ftp://ftp.kde.org/pub/kde/stable/applications/%{version}/src/%{name}-%{version}.tar.xz
-BuildRequires:	kde4-macros
+Source0:	ftp://ftp.kde.org/pub/kde/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
 BuildRequires:  cmake(KF5KIO)
 BuildRequires:  cmake(KF5Archive)
 BuildRequires:  cmake(KF5I18n)
-
+BuildRequires:	ninja
 
 %description
 Runtime library for KDE Education Application.
@@ -43,9 +43,9 @@ Conflicts:	kdeedu4-devel < 4.6.90
 Files needed to build applications based on %{name}.
 
 %files devel
-%{_kde_includedir}/libkeduvocdocument
-%{_kde_libdir}/libKEduVocDocument.so
-%{_kde_libdir}/%{name}
+%{_includedir}/libkeduvocdocument
+%{_libdir}/libKEduVocDocument.so
+%{_libdir}/cmake/libkeduvocdocument
 
 #----------------------------------------------------------------------
 
@@ -53,9 +53,8 @@ Files needed to build applications based on %{name}.
 %setup -q
 
 %build
-%cmake_kde4 -DINCLUDE_INSTALL_DIR=%{_includedir}
-%make
+%cmake -G Ninja
+ninja
 
 %install
-%makeinstall_std -C build
-
+DESTDIR="%{buildroot}" ninja -C build install
