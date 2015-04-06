@@ -28,7 +28,7 @@ Group:		System/Libraries
 Runtime library for KDE Education Application
 
 %files -n %{libkeduvocdocument}
-%{_kde_libdir}/libKEduVocDocument.so.%{keduvocdocument_major}*
+%{_libdir}/libKEduVocDocument.so.%{keduvocdocument_major}*
 
 #--------------------------------------------------------------------
 
