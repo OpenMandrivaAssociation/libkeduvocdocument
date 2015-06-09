@@ -2,15 +2,15 @@
 Summary:	Free Educational Software based on the KDE technologies
 Name:		libkeduvocdocument
 Version:	15.04.2
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://edu.kde.org
-Source0:	ftp://ftp.kde.org/pub/kde/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
+Source0:	http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
 BuildRequires:  cmake(KF5KIO)
 BuildRequires:  cmake(KF5Archive)
 BuildRequires:  cmake(KF5I18n)
-BuildRequires:	ninja
+BuildRequires:	cmake(ECM)
 
 %description
 Runtime library for KDE Education Application.
@@ -51,10 +51,10 @@ Files needed to build applications based on %{name}.
 
 %prep
 %setup -q
+%cmake_kde5
 
 %build
-%cmake -G Ninja
-ninja
+%ninja -C build
 
 %install
-DESTDIR="%{buildroot}" ninja -C build install
+%ninja_install -C build
