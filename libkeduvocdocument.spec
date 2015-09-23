@@ -11,6 +11,7 @@ BuildRequires:  cmake(KF5KIO)
 BuildRequires:  cmake(KF5Archive)
 BuildRequires:  cmake(KF5I18n)
 BuildRequires:	cmake(ECM)
+BuildRequires:	cmake(Qt5Test)
 
 %description
 Runtime library for KDE Education Application.
