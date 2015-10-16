@@ -1,7 +1,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 Summary:	Free Educational Software based on the KDE technologies
 Name:		libkeduvocdocument
-Version:	15.08.1
+Version:	15.08.2
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
