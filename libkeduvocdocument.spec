@@ -1,3 +1,7 @@
+%define major 5
+%define libname %mklibname KEduVocDocument %{major}
+%define devname %mklibname KEduVocDocument -d
+
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 Summary:	Free Educational Software based on the KDE technologies
 Name:		libkeduvocdocument
@@ -12,38 +16,36 @@ BuildRequires:  cmake(KF5Archive)
 BuildRequires:  cmake(KF5I18n)
 BuildRequires:	cmake(ECM)
 BuildRequires:	cmake(Qt5Test)
+BuildRequires:	cmake(Qt5Xml)
 
 %description
 Runtime library for KDE Education Application.
 
 #---------------------------------------------
 
-%define keduvocdocument_major 5
-%define libkeduvocdocument %mklibname KEduVocDocument %{keduvocdocument_major}
-
-%package -n %{libkeduvocdocument}
+%package -n %{libname}
 Summary:	Runtime library for KDE Education Application
 Group:		System/Libraries
 
-%description -n %{libkeduvocdocument}
+%description -n %{libname}
 Runtime library for KDE Education Application
 
-%files -n %{libkeduvocdocument}
-%{_libdir}/libKEduVocDocument.so.%{keduvocdocument_major}*
+%files -n %{libname}
+%{_libdir}/libKEduVocDocument.so.%{major}*
 
 #--------------------------------------------------------------------
 
-%package devel
+%package -n %{devname}
 Summary:	Devel stuff for %{name}
 Group:		Development/KDE and Qt
-Requires:	kdelibs4-devel
 Requires:	%{libkeduvocdocument} = %{version}-%{release}
 Conflicts:	kdeedu4-devel < 4.6.90
+Obsoletes:	libkeduvocdocument-devel < 15.12.0
 
-%description devel
+%description  -n %{devname}
 Files needed to build applications based on %{name}.
 
-%files devel
+%files  -n %{devname}
 %{_includedir}/libkeduvocdocument
 %{_libdir}/libKEduVocDocument.so
 %{_libdir}/cmake/libkeduvocdocument
