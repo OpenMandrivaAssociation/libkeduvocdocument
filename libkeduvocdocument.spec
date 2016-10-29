@@ -6,7 +6,7 @@
 
 Summary:	Free Educational Software based on the KDE technologies
 Name:		libkeduvocdocument
-Version:	16.04.3
+Version:	16.08.2
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
