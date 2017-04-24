@@ -6,7 +6,7 @@
 
 Summary:	Free Educational Software based on the KDE technologies
 Name:		libkeduvocdocument
-Version:	16.12.2
+Version:	17.04.0
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -18,15 +18,19 @@ BuildRequires:  cmake(KF5I18n)
 BuildRequires:	cmake(ECM)
 BuildRequires:	cmake(Qt5Test)
 BuildRequires:	cmake(Qt5Xml)
+Requires:	%{libname} = %{EVRD}
 
 %description
 Runtime library for KDE Education Application.
+
+%files -f %{name}.lang
 
 #---------------------------------------------
 
 %package -n %{libname}
 Summary:	Runtime library for KDE Education Application
 Group:		System/Libraries
+Requires:	%{name} = %{EVRD}
 
 %description -n %{libname}
 Runtime library for KDE Education Application
@@ -62,3 +66,4 @@ Files needed to build applications based on %{name}.
 
 %install
 %ninja_install -C build
+%find_lang %{name}
