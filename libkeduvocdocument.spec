@@ -7,7 +7,7 @@
 Summary:	Free Educational Software based on the KDE technologies
 Name:		libkeduvocdocument
 Version:	19.12.1
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://edu.kde.org
