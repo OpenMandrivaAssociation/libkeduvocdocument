@@ -59,6 +59,7 @@ Files needed to build applications based on %{name}.
 %autosetup -p1 -n libkeduvocdocument-%{version}
 %cmake \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
+	-DQT_MAJOR_VERSION=6 \
 	-G Ninja
 
 %build
