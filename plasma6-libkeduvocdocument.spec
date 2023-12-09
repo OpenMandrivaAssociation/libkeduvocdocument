@@ -1,6 +1,6 @@
 %define major 5
-%define libname %mklibname KEduVocDocument
-%define devname %mklibname KEduVocDocument -d
+%define libname %mklibname KEduVocDocument6
+%define devname %mklibname KEduVocDocument6 -d
 
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 
