@@ -1,3 +1,6 @@
+%define git 20240217
+%define gitbranch release/24.02
+%define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 %define major 5
 %define libname %mklibname KEduVocDocument6
 %define devname %mklibname KEduVocDocument6 -d
@@ -6,12 +9,16 @@
 
 Summary:	Free Educational Software based on the KDE technologies
 Name:		plasma6-libkeduvocdocument
-Version:	24.01.95
-Release:	1
+Version:	24.01.96
+Release:	%{?git:0.%{git}.}1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://edu.kde.org
+%if 0%{?git:1}
+Source0:	https://invent.kde.org/education/libkeduvocdocument/-/archive/%{gitbranch}/libkeduvocdocument-%{gitbranchd}.tar.bz2#/libkeduvocdocument-%{git}.tar.bz2
+%else
 Source0:	http://download.kde.org/%{stable}/release-service/%{version}/src/libkeduvocdocument-%{version}.tar.xz
+%endif
 BuildRequires:  cmake(KF6KIO)
 BuildRequires:  cmake(KF6Archive)
 BuildRequires:  cmake(KF6I18n)
@@ -58,7 +65,7 @@ Files needed to build applications based on %{name}.
 #----------------------------------------------------------------------
 
 %prep
-%autosetup -p1 -n libkeduvocdocument-%{version}
+%autosetup -p1 -n libkeduvocdocument-%{?git:%{gitbranchd}}%{!?git:%{version}}
 %cmake \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
 	-DQT_MAJOR_VERSION=6 \
