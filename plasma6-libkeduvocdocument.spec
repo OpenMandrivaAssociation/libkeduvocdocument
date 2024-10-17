@@ -13,7 +13,7 @@ Version:	24.08.2
 Release:	%{?git:0.%{git}.}1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
-Url:		http://edu.kde.org
+Url:		https://edu.kde.org
 %if 0%{?git:1}
 Source0:	https://invent.kde.org/education/libkeduvocdocument/-/archive/%{gitbranch}/libkeduvocdocument-%{gitbranchd}.tar.bz2#/libkeduvocdocument-%{git}.tar.bz2
 %else
