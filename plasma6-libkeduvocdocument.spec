@@ -9,8 +9,8 @@
 
 Summary:	Free Educational Software based on the KDE technologies
 Name:		plasma6-libkeduvocdocument
-Version:	24.12.3
-Release:	%{?git:0.%{git}.}2
+Version:	25.04.0
+Release:	%{?git:0.%{git}.}1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		https://edu.kde.org
