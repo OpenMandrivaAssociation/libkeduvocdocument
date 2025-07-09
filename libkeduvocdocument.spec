@@ -8,7 +8,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 
 Summary:	Free Educational Software based on the KDE technologies
-Name:		plasma6-libkeduvocdocument
+Name:		libkeduvocdocument
 Version:	25.04.0
 Release:	%{?git:0.%{git}.}1
 License:	GPLv2+
