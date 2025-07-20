@@ -9,7 +9,7 @@
 
 Summary:	Free Educational Software based on the KDE technologies
 Name:		libkeduvocdocument
-Version:	25.04.0
+Version:	25.04.3
 Release:	%{?git:0.%{git}.}1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -28,6 +28,11 @@ BuildRequires:	cmake(Qt6Core)
 BuildRequires:	cmake(Qt6Test)
 BuildRequires:	cmake(Qt6Xml)
 Requires:	%{libname} = %{EVRD}
+
+%rename plasma6-libkeduvocdocument
+
+BuildSystem:	cmake
+BuildOption:	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
 
 %description
 Runtime library for KDE Education Application.
@@ -61,19 +66,3 @@ Files needed to build applications based on %{name}.
 %{_includedir}/libkeduvocdocument
 %{_libdir}/libKEduVocDocument.so
 %{_libdir}/cmake/libkeduvocdocument
-
-#----------------------------------------------------------------------
-
-%prep
-%autosetup -p1 -n libkeduvocdocument-%{?git:%{gitbranchd}}%{!?git:%{version}}
-%cmake \
-	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
-	-DQT_MAJOR_VERSION=6 \
-	-G Ninja
-
-%build
-%ninja -C build
-
-%install
-%ninja_install -C build
-%find_lang libkeduvocdocument
